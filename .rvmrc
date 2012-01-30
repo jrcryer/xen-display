@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if ! rvm list | grep ruby-1.9.2-p290 ; then
+  rvm install 1.9.2-p290
+fi
+
+rvm 1.9.2-p290
+
+if ! rvm gemset list | grep xen-display ; then
+  rvm gemset create xen-display
+fi
+
+rvm 1.9.2-p290@xen-display
+
+if ! gem list | grep -q bundler ; then
+  gem install --no-ri --no-rdoc bundler
+  bundle install --without production
+fi

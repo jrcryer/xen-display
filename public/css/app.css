@@ -1,0 +1,32 @@
+body {
+	font-family: 'Lato', Helvetica, Arial;
+	width: 1024px;
+	padding: 1.66666667%;
+	background: #222;
+	color: #FFF;
+	margin: 0 auto;
+	text-align: center;
+}
+header, article {
+	text-align: left;
+}
+header h1 {
+	font-family: 'Oswald', Helvetica, Arial;
+	font-size: 1.5em;/* 24/16 */
+	text-shadow: 0 1px 2px #000;
+	margin: 0 0 2.08333333%;
+}
+h2 {
+	font-family: 'Oswald', Helvetica, Arial;
+	font-size: 1.25em; /* 20/16 */
+	text-shadow: 0 1px 2px #000;
+	margin: 0 0 3.90625%;
+}
+.pool {
+	float: left;
+	width: 25%;
+	margin: 0 0 2.08333333%;	
+}
+.server {
+	padding: 5px 0 5px 25px;
+}

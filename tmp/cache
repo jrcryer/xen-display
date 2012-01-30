@@ -1,0 +1,24 @@
+{
+    "head": [
+        {
+            "name": "prod",
+            "servers": [
+                {
+                    "uuid": "000",
+                    "name-label": "prod1",
+                    "status": "running"
+                }
+            ]
+        },
+        {
+            "name": "staging",
+            "servers": [
+                {
+                    "uuid": "111",
+                    "name-label": "stage1",
+                    "status": "halted"
+                }
+            ]
+        }
+    ]
+}
