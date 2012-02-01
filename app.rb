@@ -15,14 +15,10 @@ module XenDisplay
       
       host = params[:host]
       data = params[:data]
+      raise "Invalid parameters" if data.empty?
 
-      if data.empty?
-          raise "Invalid parameters"
-      end
-      servers = fetch_servers
-
-      servers = update_servers(servers, host, data)
-      cache_servers(settings.cache_file, servers)
+      servers = update_servers(host, data)
+      cache_servers(servers)
 
       content_type :text
       puts 'complete'

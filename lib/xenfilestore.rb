@@ -14,13 +14,8 @@ module Sinatra
         servers
       end
 
-			def cache_servers(path, content)
-      	file = File.open(path, "w")
-      	file.write content.to_json
-      	file.close
-    	end
-
-    	def update_servers(servers, host, data)
+    	def update_servers(host, data)
+        servers       = fetch_servers
       	servers[host] = []
       	guests        = data.split("\n\n\n")
 
@@ -33,7 +28,13 @@ module Sinatra
         	servers[host] << server
       	end
       	servers
-    	end 
+    	end
+
+      def cache_servers(content)
+        file = File.open(settings.cache_file, "w")
+        file.write content.to_json
+        file.close
+      end 
 
     	protected 
     	
