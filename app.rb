@@ -21,7 +21,7 @@ module XenDisplay
       cache_servers(servers)
 
       content_type :text
-      puts 'complete'
+      "complete"
     end
     
   end
