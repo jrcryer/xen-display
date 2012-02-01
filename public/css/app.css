@@ -20,16 +20,51 @@ h2 {
 	font-family: 'Oswald', Helvetica, Arial;
 	font-size: 1.25em; /* 20/16 */
 	text-shadow: 0 1px 2px #000;
-	margin: 0 0 3.90625%;
+	margin: 0 0 6.90625%;
 }
 .pool {
 	float: left;
 	width: 25%;
-	margin: 0 0 2.08333333%;	
+	margin: 0 0 2.08333333%;
+	padding: 0 3.40909091% 0 0;
 }
 .server {
-	padding: 5px 0 5px 25px;
+	font-size: 1.125em;
+	padding: 2.27272727%;
+	margin: 0 0 3.40909091%;
+	border-radius: 6px;
+}
+.running {
+	background-image: linear-gradient(bottom, rgb(127,163,10) 0%, rgb(67,110,18) 0%, rgb(127,163,10) 78%);
+	background-image: -o-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(67,110,18) 0%, rgb(127,163,10) 78%);
+	background-image: -moz-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(67,110,18) 0%, rgb(127,163,10) 78%);
+	background-image: -webkit-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(67,110,18) 0%, rgb(127,163,10) 78%);
+	background-image: -ms-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(67,110,18) 0%, rgb(127,163,10) 78%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(127,163,10)),
+		color-stop(0, rgb(67,110,18)),
+		color-stop(0.78, rgb(127,163,10))
+	);
+	border: 1px solid  rgb(127,163,10);
 }
 .halted {
-	color: #DD4B39;
+	background-image: linear-gradient(bottom, rgb(127,163,10) 0%, rgb(110,19,19) 0%, rgb(196,39,0) 78%);
+	background-image: -o-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(110,19,19) 0%, rgb(196,39,0) 78%);
+	background-image: -moz-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(110,19,19) 0%, rgb(196,39,0) 78%);
+	background-image: -webkit-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(110,19,19) 0%, rgb(196,39,0) 78%);
+	background-image: -ms-linear-gradient(bottom, rgb(127,163,10) 0%, rgb(110,19,19) 0%, rgb(196,39,0) 78%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(127,163,10)),
+		color-stop(0, rgb(110,19,19)),
+		color-stop(0.78, rgb(196,39,0))
+	);
+	border: 1px solid  rgb(196,39,0);
 }
