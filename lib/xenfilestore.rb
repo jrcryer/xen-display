@@ -1,9 +1,19 @@
 require 'sinatra/base'
+require 'json'
 
 module Sinatra
 	module XenFileStore
 
 		module Helpers
+
+      def fetch_servers
+        file      = File.open(settings.cache_file, "r")
+        content   = file.read
+        servers   = content.empty? ? {} : JSON.parse(content) 
+        file.close
+        servers
+      end
+
 			def cache_servers(path, content)
       	file = File.open(path, "w")
       	file.write content.to_json
