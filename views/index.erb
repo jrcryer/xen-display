@@ -1,11 +1,10 @@
 <% unless @servers.empty? %>
-	<% @servers['head'].each do |head| %>
+	<% @servers.each do |head, servers| %>
 		<div class="pool">
-			<h2><%= head['name'] %></h2>
-
+			<h2><%= head %></h2>
 			<ul>
-				<% head['servers'].each do |server| %>
-					<li class="server <%= server['status']%>"><%= server['name-label'] %></li>	
+				<% servers.each do |server| %>
+					<li class="server <%= server['state'] %>"><%= server['name'] %></li>	
 				<% end %>
 			</ul>
 		</div>
