@@ -2,9 +2,9 @@ require 'sinatra/base'
 require 'json'
 
 module Sinatra
-	module XenFileStore
+  module XenFileStore
 
-		module Helpers
+    module Helpers
 
       def fetch_servers
         file      = File.open(settings.cache_file, "r")
@@ -14,21 +14,21 @@ module Sinatra
         servers
       end
 
-    	def update_servers(host, data)
+      def update_servers(host, data)
         servers       = fetch_servers
-      	servers[host] = []
-      	guests        = data.split("\n\n\n")
+        servers[host] = []
+        guests        = data.split("\n\n\n")
 
-      	guests.each do |guest|
-        	next if guest.include?("Control domain")
+        guests.each do |guest|
+          next if guest.include?("Control domain")
 
-        	server = get_server_detail(guest) 
-        	next if server.empty?
+          server = get_server_detail(guest) 
+          next if server.empty?
         
-        	servers[host] << server
-      	end
-      	servers
-    	end
+          servers[host] << server
+        end
+        servers
+      end
 
       def cache_servers(content)
         file = File.open(settings.cache_file, "w")
@@ -36,36 +36,36 @@ module Sinatra
         file.close
       end 
 
-    	protected 
-    	
-    	def get_server_detail(guest)
+      protected 
+      
+      def get_server_detail(guest)
 
-      	server     = {}
-      	attributes = guest.split("\n")
+        server     = {}
+        attributes = guest.split("\n")
 
-      	attributes.each do |attribute|
-        	label, value = attribute.split(':')
-        	next if label.empty? || label.include?('uuid')
+        attributes.each do |attribute|
+          label, value = attribute.split(':')
+          next if label.empty? || label.include?('uuid')
 
-        	label = 'name'  if label.include?('name')
-        	label = 'state' if label.include?('state')
-        	server[label] = value.strip
-      	end
-      	server
-    	end
+          label = 'name'  if label.include?('name')
+          label = 'state' if label.include?('state')
+          server[label] = value.strip
+        end
+        server
+      end
     end
 
-  	def self.registered(app)
-  		app.helpers XenFileStore::Helpers
-  		app.set :cache_file, File.join(settings.root, 'tmp/cache')
+    def self.registered(app)
+      app.helpers XenFileStore::Helpers
+      app.set :cache_file, File.join(settings.root, 'tmp/cache')
 
       app.before {
         unless File.readable?(settings.cache_file) and File.writable?(settings.cache_file)
           File.open(settings.cache_file, 'w')
         end
       }
-		end
-	end
+    end
+  end
 
-	register XenFileStore
+  register XenFileStore
 end
