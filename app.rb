@@ -8,6 +8,11 @@ module XenDisplay
     get '/' do  
       @servers = fetch_servers
 
+      if params[:hosts]
+        hosts    = params[:hosts].split(',')
+        @servers = @servers.select {|key, value| hosts.include?(key)}
+      end
+
       erb :index
     end
 
