@@ -18,18 +18,18 @@ header h1 {
 }
 h2 {
 	font-family: 'Oswald', Helvetica, Arial;
-	font-size: 1.25em; /* 20/16 */
+	font-size: 1.325em;
 	text-shadow: 0 1px 2px #000;
 	margin: 0 0 6.90625%;
 }
 .pool {
 	float: left;
-	width: 25%;
+	width: 21.655%;
 	margin: 0 0 2.08333333%;
 	padding: 0 3.40909091% 0 0;
 }
 .server {
-	font-size: 1.125em;
+	font-size: 1.325em;
 	padding: 2.27272727%;
 	margin: 0 0 3.40909091%;
 	border-radius: 6px;
